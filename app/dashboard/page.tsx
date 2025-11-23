@@ -32,9 +32,9 @@ export default async function DashboardPage() {
   }
   const result = await GetMessagesForUser(session.user.id);
 
-  const shareUrl = `${
-    process.env.BETTER_AUTH_URL || "http://localhost:3000"
-  }/${user.profileUrl}/add`;
+  const shareUrl = `${process.env.BETTER_AUTH_URL || "http://localhost:3000"}/${
+    user.profileUrl
+  }/add`;
 
   return (
     <div className="container mx-auto px-4 py-8 max-w-4xl">
@@ -46,7 +46,7 @@ export default async function DashboardPage() {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="flex items-center gap-4 p-4 bg-muted rounded-lg">
+          <div className="flex flex-col md:flex-col items-start md:items-center gap-4 p-4 bg-muted rounded-lg">
             <div className="flex-1">
               <p className="text-sm font-medium mb-1">Your Message Link:</p>
               <code className="text-xs bg-background px-2 py-1 rounded border">
