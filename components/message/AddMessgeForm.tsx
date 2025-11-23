@@ -93,12 +93,6 @@ export function AddMessageForm({
           description="If you want to reveal your identity, enter your name here."
         />
 
-        {referralLink && (
-          <div className="text-xs text-muted-foreground bg-muted p-2 rounded">
-            📍 Referred from: <span className="font-mono">{referralLink}</span>
-          </div>
-        )}
-
         {error && (
           <div className="bg-destructive/15 text-destructive text-sm p-3 rounded-md flex items-center gap-2">
             <span className="font-medium">Error:</span> {error}
@@ -126,7 +120,9 @@ export function AddMessageForm({
         </Button>
 
         <Link href={"/signup"}>
-          <Button className="bg-blue-700 hover:bg-blue-500">Create your own link?</Button>
+          <Button className="bg-blue-700 hover:bg-blue-500">
+            Create your own link?
+          </Button>
         </Link>
       </form>
     </Form>
