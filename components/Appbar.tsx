@@ -3,6 +3,7 @@ import { headers } from "next/headers";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Avatar, AvatarFallback } from "@/components/ui/avatar";
+import { Signout } from "./Signout";
 
 export async function Appbar() {
   const session = await auth.api.getSession({
@@ -29,9 +30,7 @@ export async function Appbar() {
             <Button asChild variant="default" size="sm">
               <Link href="/dashboard">Dashboard</Link>
             </Button>
-            <Button asChild variant="ghost" size="sm">
-              <Link href="/api/auth/sign-out">Sign out</Link>
-            </Button>
+            <Signout />
           </div>
         ) : (
           <div className="flex gap-2">

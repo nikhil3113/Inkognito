@@ -8,6 +8,7 @@ import {
   CardHeader,
   CardTitle,
 } from "@/components/ui/card";
+import { headers } from "next/headers";
 
 interface PageProps {
   params: Promise<{
@@ -25,6 +26,9 @@ export default async function AddMessagePage({
   const { profileUrl } = await params;
   const { ref } = await searchParams;
 
+  const headersList = await headers();
+  const referer = headersList.get("referer");
+
   const user = await prisma.user.findUnique({
     where: { profileUrl },
     select: {
@@ -38,7 +42,7 @@ export default async function AddMessagePage({
     notFound();
   }
 
-  const referralLink = ref ? decodeURIComponent(ref) : null;
+  const referralLink = referer ? referer : decodeURIComponent(ref || "");
 
   return (
     <div className="flex min-h-screen items-center justify-center bg-muted/40 px-4 py-12">
