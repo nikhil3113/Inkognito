@@ -11,6 +11,7 @@ import { Form } from "@/components/ui/form";
 import { Button } from "@/components/ui/button";
 import FormFields from "@/components/FormFields";
 import { addMessageAction } from "@/lib/actions/messages";
+import Link from "next/link";
 
 const messageSchema = z.object({
   content: z
@@ -123,6 +124,10 @@ export function AddMessageForm({
             "Send Anonymous Message"
           )}
         </Button>
+
+        <Link href={"/signup"}>
+          <Button className="bg-blue-700 hover:bg-blue-500">Create your own link?</Button>
+        </Link>
       </form>
     </Form>
   );
